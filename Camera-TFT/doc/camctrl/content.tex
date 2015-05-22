@@ -14,7 +14,7 @@ The application receives input through an UART-USB converter. this devices is
 assumed to be mapped to \texttt{/dev/ttyUSB0}.
 
 \textbf{camctrl} expects received data to be in the following format:
-\textbf{8N1 19200bps}.
+\textbf{8N1 9600bps}.
 
 The application interprets incoming data as shown in the table below:
 
@@ -48,15 +48,41 @@ The application interprets incoming data as shown in the table below:
       \end{center}
    \end{table}
 
+   \subsubsection{\texttt{Output}}
+%   \begin{itemize}
+%      \item 2 GPIOs.
+%      \item \textbf{output}.
+%   \end{itemize}
+   \begin{table}[!htb]
+      \begin{center}
+         \begin{tabular}{|c|c|c|c|c|}
+            \rowcolor{black}
+            \textcolor{white}{\textbf{BCM GPIO}}  &
+            \textcolor{white}{\textbf{Header Pin}} &
+            \textcolor{white}{\textbf{Function}} &
+            \textcolor{white}{\textbf{Description}}\\
+            \hline
+            \hline
+            \textbf{21} & \textbf{40} &
+               \texttt{interupt} & interrupts signal \\
+            \hline
+         \end{tabular}
+         \caption{\texttt{Output}}
+         \label{table:output}
+      \end{center}
+   \end{table}
+
 Please not that this application considers the state bits in the byte to be
 active-low; meaning that the least significant nibble of the byte is b1111 when
 all of the buttons are at rest.
 
-If the "up" and "down" or the "left" and "right" buttons are asserted
-simultaneously, the cameras's video stream is paused and a capture of the frozen
-frame is saved to \texttt{/home/pi/capture.jpg}. Once paused, the normal
-execution of the application can be resumed by asserting the pause condition
-once again.
+If the "up", "down", "left" and "right buttons are asserted simultaneously, the
+application outputs 100ms pulse on the output interrupt pin that can be used by
+external devices to trigger an event.
+
+If, on the other hand, only the "up" and "down" or the "left" and "right"
+buttons are asserted simultaneously, a frame of the video stream is saved to
+\texttt{/home/pi/capture.jpg}.
 
 All other messages are processed and commands are sent to the \textbf{servoctrl}
 over socket \textbf{2301} in the format specified by the documentation of the
@@ -104,14 +130,14 @@ The test sequence currently implemented is the following:
 \section{Issues}
 The following issues have been observed in this module:
    \begin{enumerate}
-      \item At the time of writing, a recent update of the Raspberry Pi
-         bootloader and the third party kernel and packages by Adafruit needed
-         to control the LCD-TFT touchcreen have caused the screen to not
-         function. This is expected to be resolved by the upstream developer.
       \item There is a bug in the sevice script \texttt{/etc/init.d/camctrl} or
          the source code that prevents the application from being daemonized. as
          a workaround, the following command can be executed the start
          \textbf{camctrl} detached:\\
          \texttt{screen -d -m -S camctrl python /usr/local/bin/camctrl.py}
+      \item At the time of writing, a recent update of the Raspberry Pi
+         bootloader and the third party kernel and packages by Adafruit needed
+         to control the LCD-TFT touchcreen have caused the screen to not
+         function. This is expected to be resolved by the upstream developer.
    \end{enumerate}
 
