@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import serial
-import socket
 import time
 import sys
 
