@@ -56,7 +56,7 @@ if __name__ == '__main__':
     # connect to serial port
     ser = serial.Serial()
     ser.port     = '/dev/ttyUSB0'
-    ser.baudrate = 19200
+    ser.baudrate = 9600
     ser.bytesize = serial.EIGHTBITS
     ser.stopbits = serial.STOPBITS_ONE
     ser.parity   = serial.PARITY_NONE

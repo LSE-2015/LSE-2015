@@ -5,7 +5,7 @@ import socket
 import time
 import sys
 import picamera
-import wiringpi2 as wiringpi
+#import wiringpi2 as wiringpi
 
 OUTPUT = 1
 HIGH   = 1
@@ -18,11 +18,11 @@ if __name__ == '__main__':
     yPos  = 64
 
     # use BCM GPIO numbers
-    wiringpi.wiringPiSetupGpio()
+    #wiringpi.wiringPiSetupGpio()
 
     # Configure interrupt pin
-    wiringpi.pinMode(21, OUTPUT)
-    wiringpi.digitalWrite(21, LOW)
+    #wiringpi.pinMode(21, OUTPUT)
+    #wiringpi.digitalWrite(21, LOW)
 
     # connect to serial port
     ser = serial.Serial()
@@ -55,9 +55,9 @@ if __name__ == '__main__':
         l = ((ord(cmd[0]) & (1 << 3)) >> 3)
 
         if ((d == 0) and (u == 0) and (l == 0) and (r == 0)):
-            wiringpi.digitalWrite(21, HIGH)
-            time.sleep(0.05)
-            wiringpi.digitalWrite(21, LOW)
+            #wiringpi.digitalWrite(21, HIGH)
+            #time.sleep(0.05)
+            #wiringpi.digitalWrite(21, LOW)
         elif (((d == 0) and (u == 0)) or ((l == 0) and (r == 0))):
             camera.capture('/home/pi/capture.jpg', use_video_port=True)
         else:
