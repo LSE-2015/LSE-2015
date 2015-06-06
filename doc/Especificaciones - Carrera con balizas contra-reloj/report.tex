@@ -1,0 +1,109 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[pdfborder= 0 0 0 1]{hyperref}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc} %%%Este paquete permite poner acentos directamente%%%
+\usepackage{tabularx}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{framed}
+\usepackage{color, colortbl}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{nicefrac}
+
+\usepackage[T1]{fontenc}
+\usepackage[scaled]{beramono}
+% ------------------------------------------------------
+% Colours definition
+% ------------------------------------------------------
+   \definecolor{lightgray}{rgb}{0.975,0.975,0.975}
+   \definecolor{grey}{rgb}{0.9,0.9,0.9}
+   \definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+   \definecolor{greencomments}{rgb}{0,0.5,0}
+   \definecolor{redstrings}{rgb}{0.9,0,0}
+   \definecolor{circuitBlue}{RGB}{58, 114, 172}
+   \definecolor{designBlue}{RGB}{36, 71, 128}
+   \definecolor{evaluatorBlue}{RGB}{22, 43, 77}
+   \definecolor{evaluatorOrange}{RGB}{250, 98, 32}
+
+
+\pagestyle{fancy}
+\pagenumbering{gobble}
+
+\newcommand{\exSubject}{LSE-2015 Project}
+\newcommand{\exTitle}{\texttt{Especificaciones del juego: Carrera con balizas contra-reloj}}
+
+\begin{document}
+
+
+
+\pagenumbering{roman}
+
+\title{\textbf{\Large{\exSubject\\\exTitle}}}
+   \date{$04$ de Junio, 2015}
+   \author{Ibáñez Flamarique, Alberto (\textit{Dev, Doc})\\
+           \href{mailto:alberto.ibanez.flamarique.@alumnos.upm.es}
+           {\textbf{\textit{alberto.ibanez.flamarique.@alumnos.upm.es}}}}
+
+   \hypersetup{colorlinks   =  true,
+               urlcolor     =  blue
+               pdftitle     = {\exSubject},
+               pdfauthor    = {Alberto Ibáñez Flamarique},
+               pdfsubject   = {Especificaciones}}
+
+   \maketitle
+   \thispagestyle{empty}
+   \begin{figure}[htb!]
+      \centering
+         \includegraphics[scale=1,
+         keepaspectratio]{./Figures/logo_die.png}
+   \end{figure}
+   \begin{figure}[htb!]
+      \centering
+         \includegraphics[scale=0.22,
+         keepaspectratio]{./Figures/logo_upm.png}
+   \end{figure}
+
+   \vspace{2cm}
+
+   \begin{table}[!htb]
+      \centering
+      \begin{tabular}{|c|c|l|c|}
+      \hline
+      \rowcolor{circuitBlue}
+      \textbf{Fecha} & \textbf{Versión} & \textbf{Asunto}   & \textbf{Autor} \\
+      \hline
+      \hline
+      04-06-2015    & 1.0 & Especificaciones & \textit{Alberto} \\
+      \hline
+      \end{tabular}
+   \end{table}
+
+%   \cleardoublepage
+   \pagebreak
+   \mbox{}
+   \thispagestyle{empty}
+   \pagebreak
+
+   \tableofcontents
+%   \listoffigures
+%   \lstlistoflistings
+   \pagebreak
+   \lhead{\textbf{\textit{\exTitle}}\\}
+   \rhead{\textit{\textit{\exSubject}}}
+
+%   \cleardoublepage
+   \pagebreak
+   \mbox{}
+   \thispagestyle{empty}
+   \pagebreak
+
+   \setcounter{page}{1}
+   \pagenumbering{arabic}
+   \include{./content}
+
+\end{document}

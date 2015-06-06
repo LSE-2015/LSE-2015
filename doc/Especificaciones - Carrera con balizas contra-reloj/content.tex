@@ -1,0 +1,20 @@
+\section{Descripción}
+El presente documento tiene como objeto exponer las especificaciones del juego textit{Carrera con balizas contra-reloj}.
+
+Nota: Algunos aspectos no han sido todavía concretados. Será necesario acordarlos con el cliente. 
+
+\section{Especificaciones}
+\begin{enumerate}[1.]
+    \item Se monta el circuito a gusto del usuario/os con el hardware disponible. Se encienden los sistemas. Si algún módulo necesita un botón de start, ahora será el momento de pulsarlo. Se coloca el dron/es en la posición de salida.
+    \item Se inicia la carrera pulsando un botón / tecla. La forma de aviso del inicio de la carrera deberá ser mediante un sonido / mediante un LED / mediante un mensaje en pantalla. Los usuarios pueden comenzar la carrera. El software del programa inicia una cuenta del tiempo transcurrido y lo deberá mostrar por una pantalla. Por cada carrera solo existirá un dron funcionando.
+    \item Los usuarios deberán hacer pasar al dron por una serie de balizas en el orden establicido. Las balizas estarán numeradas com baliza 1, baliza 2 y así sucesivamente. (Para esta implementación, el test contará de dos balizas). Cada dron deberá pasar primero por la baliza 1, después por la baliza 2, etc. Si algún dron pasa por alguna de las baliazas que no le corresponde en ese momento, no contará como que ha pasado.
+    \item A la llegada del  dron a la posición de meta, que se corresponderá con la ultima baliza del juego, se deberá registrar el tiempo que se a tardado en completar el circuito. 
+    \begin{description}
+    		\item \hspace{5mm} \bigskip Tiempo transcurrido:    14 min 30 seg  
+    		
+    		\item \hspace{5mm} \bigskip Dron: 12 min 49 seg 892 mils
+	\end{description}
+	
+El tiempo transcurrido se actualizará  en la pantalla cada 5 segundos.
+En este momento finalizará el juego mostrará un mensaje por pantalla para que se iniciar una nueva carrera. Tras pulsar un botón o tecla se comenzará de nuevo el juego.
+\end{enumerate}
