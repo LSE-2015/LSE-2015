@@ -58,6 +58,7 @@ if __name__ == '__main__':
             #wiringpi.digitalWrite(21, HIGH)
             #time.sleep(0.05)
             #wiringpi.digitalWrite(21, LOW)
+            pass
         elif (((d == 0) and (u == 0)) or ((l == 0) and (r == 0))):
             camera.capture('/home/pi/capture.jpg', use_video_port=True)
         else:
