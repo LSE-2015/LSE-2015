@@ -1,0 +1,7 @@
+El fichero Productdemo.py debe ser ejecutado desde el directorio:
+
+/home/pi/projects/crazyflie-clients-python/lib 
+
+De esta manera usa la librería del crazyflie.
+
+Es un código muy sucio y en pruebas. 
