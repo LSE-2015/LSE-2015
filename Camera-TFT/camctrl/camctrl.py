@@ -7,9 +7,9 @@ import sys
 import picamera
 #import wiringpi2 as wiringpi
 
-OUTPUT = 1
-HIGH   = 1
-LOW    = 0
+#OUTPUT = 1
+#HIGH   = 1
+#LOW    = 0
 
 if __name__ == '__main__':
 
@@ -38,7 +38,8 @@ if __name__ == '__main__':
     try:
         ser.open()
     except serial.SerialException, msg:
-        print >> sys.stderr, "Could not open serial port:\n" + msg
+        #print >> sys.stderr, "Could not open serial port:\n" + msg
+        print >> sys.stderr, "Could not open serial port.\n"
         sys.exit(1)
 
     camera = picamera.PiCamera()
@@ -71,7 +72,8 @@ if __name__ == '__main__':
             try:
                 s.connect(('', 2301))
             except socket.error, (val, msg):
-                print >> sys.stderr, "Could not open socket:\n" + msg
+                #print >> sys.stderr, "Could not open socket:\n" + msg
+                print >> sys.stderr, "Could not open socket.\n"
                 sys.exit(1)
             s.send(chr(xPos + 0))
             s.shutdown(socket.SHUT_RDWR)
@@ -81,7 +83,8 @@ if __name__ == '__main__':
             try:
                 s.connect(('', 2301))
             except socket.error, (val, msg):
-                print >> sys.stderr, "Could not open socket:\n" + msg
+                #print >> sys.stderr, "Could not open socket:\n" + msg
+                print >> sys.stderr, "Could not open socket.\n"
                 sys.exit(1)
             s.send(chr(yPos + 128))
             s.shutdown(socket.SHUT_RDWR)
