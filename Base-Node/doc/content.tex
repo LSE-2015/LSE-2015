@@ -1,0 +1,45 @@
+\section{Descripción}
+El presente documento tiene como objeto exponer los requisitos, el funcionamiento  y cómo se usa el software del nodo central del juego \textit{Carrera con balizas contra-reloj}.
+
+\section{Requisitos}
+El nodo central necesita:
+\begin{itemize}
+
+   \item Una Raspberry Pi con la librería de C WiringPi para Rapberry Pi instalada, \textit{www.wiringpi.com}.
+   \item Un pulsador tipo \textit{push button}, una resistencia y una \textit{protoboard}.
+   \item Cables tipo \textit{jumpers} macho-macho y hembra-macho para realizar las conexiones.
+
+\end{itemize}
+
+El montaje hace referencia al \textit{pinout} de una Raspberry Pi B+. Para otros modelos de Raspberry el \textit{pinout} puede cambiar por lo que las siguientes indicaciones respecto a los interconexión de los pines podrían no ser válidas e incluso será necesario modificar el software.
+
+En la \textit{protoboard} protoboard se conectará el pulsador. Uno de sus extremos se conectará al pin 1 (+3.3V) y el otro se conectará por un lado a una resistencia conectada por el otro extremo al pin 6 (GND) y por otro lado, el otro extremo del pulsador se conectará al pin 7 (GPIO 7).
+
+Los pines 11 (GPIO 0) y 13 (GPIO 2) se conectarán a las señales de interrupción de las balizas. También será necesario conectar las masas de todos los dispositivos, es decir el pin 6 de la Raspberry se conectará también con las masas del las balizas.
+
+Por otra parte será necesario descargar el código referente al nodo central que se encuentra en el repositorio dentro del directorio \textit{Base-Node/src} a la Raspberry. Una vez descargado se ejecuta el comando \textit{make} para compilar el código. Una vez montado \textit{setup} ya se puede ejecutar el software a través del comando \textit{sudo ./nCentral}
+
+\section{Especificaciones}
+El juego comienza con un mensaje de bienvenida:
+    \begin{description}
+    		\item \hspace{10mm} ¡Bienvenido a la contra-reloj de drones!  
+    		\item \hspace{10mm} Pulse el botón de 'start' para comenzar.
+	\end{description}
+
+Tras este mensaje, el usuario ya puede pulsar el botón de \textit{start} para comenzar el juego. Al pulsar el botón comienza a contar el tiempo, por lo que el jugador deberá colocar el dron previamente en la posición de salida y estar preparado para hacerlo depegar. Se mostrará por pantalla el siguiente mensaje:
+
+    \begin{description}
+    		\item \hspace{10mm} El juego ha comenzado. El dron puede despegar.
+	\end{description}
+
+Cuando el dron pase por la primera baliza se mostrará el siguiente mensaje por pantalla con el tiempo transcurrido:
+    \begin{description}
+    		\item \hspace{10mm} El tiempo del 1er 'checkpoint' ha sido: XXX milisegundos
+	\end{description}
+	
+Finalmente cuando el dron pase por la segunda y última baliza el juego terminará y se mostrará el tiempo total que ha tardado el dron en realizar el circuito. A continuación el usuario podrá comenzar una nueva carrera volviendo a pulsar el botón de \textit{start}. El mensaje mostrado por pantalla será:
+
+    \begin{description}
+    		\item \hspace{10mm} Juego terminado. El tiempo total ha sido: XXX milisegundos
+    		\item \hspace{10mm} Coloque el dron en la posición de salida y pulse el botón de 'start' para que de comienzo una nueva carrera.
+	\end{description}	
